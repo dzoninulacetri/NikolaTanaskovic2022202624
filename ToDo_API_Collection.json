@@ -1,0 +1,195 @@
+{
+  "info": {
+    "name": "ToDo API Collection",
+    "description": "Postman collection for testing ToDo Spring Boot REST API",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Tasks",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/tasks",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "tasks"]
+        },
+        "description": "Dobijanje svih ToDo zadataka"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Task By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/tasks/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "tasks", "1"]
+        },
+        "description": "Dobijanje specifičnog zadatka po ID-u"
+      },
+      "response": []
+    },
+    {
+      "name": "Create Task",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Kupiti hleb\",\n    \"description\": \"Otići u pekaru i kupiti hleb za doručak\",\n    \"done\": false\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/tasks",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "tasks"]
+        },
+        "description": "Kreiranje novog ToDo zadatka"
+      },
+      "response": []
+    },
+    {
+      "name": "Update Task",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Kupiti hleb - ZAVRŠENO\",\n    \"description\": \"Zadatak je uspešno završen\",\n    \"done\": true\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/tasks/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "tasks", "1"]
+        },
+        "description": "Ažuriranje postojećeg ToDo zadatka"
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Task",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/tasks/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "tasks", "1"]
+        },
+        "description": "Brisanje ToDo zadatka"
+      },
+      "response": []
+    },
+    {
+      "name": "Create Multiple Tasks",
+      "item": [
+        {
+          "name": "Create Task 1",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Učiti Java\",\n    \"description\": \"Proučiti Spring Boot dokumentaciju\",\n    \"done\": false\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/tasks",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "tasks"]
+            }
+          }
+        },
+        {
+          "name": "Create Task 2",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Napraviti API\",\n    \"description\": \"Implementirati CRUD operacije za ToDo aplikaciju\",\n    \"done\": true\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/tasks",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "tasks"]
+            }
+          }
+        },
+        {
+          "name": "Create Task 3",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Testirati aplikaciju\",\n    \"description\": \"Testirati sve endpoint-ove pomoću Postman-a\",\n    \"done\": false\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/tasks",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "tasks"]
+            }
+          }
+        }
+      ],
+      "description": "Kreiranje više test zadataka odjednom"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
+}
